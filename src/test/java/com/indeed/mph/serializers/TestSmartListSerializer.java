@@ -1,5 +1,7 @@
 package com.indeed.mph.serializers;
 
+import com.indeed.mph.generators.IntListGenerator;
+import com.pholser.junit.quickcheck.From;
 import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 import org.junit.runner.RunWith;
@@ -13,7 +15,7 @@ import static com.indeed.mph.helpers.RoundTripHelpers.assertRoundTrip;
 public class TestSmartListSerializer {
     @Property
     public void canRoundTripSerializableLists(
-            final List<Integer> intTarget,
+            @From(IntListGenerator.class)  final List<Integer> intTarget,
             final List<Byte> byteTarget,
             final List<String> stringTarget
     ) throws IOException {
