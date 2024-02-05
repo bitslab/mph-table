@@ -32,7 +32,7 @@ public class TestSmartListSerializer {
             final List<Byte> byteTarget,
             final List<String> stringTarget
     ) throws IOException {
-        final SmartListSerializer<Integer> intsSerializer = new SmartListSerializer<>(new SmartIntegerSerializer());
+        final SmartListSerializer<Integer> intsSerializer = new SmartListSerializer<>(new SmartIntegerSerializer(), intTarget.size());
         assertRoundTrip(intsSerializer, intTarget);
 
         final SmartListSerializer<Byte> bytesSerializer = new SmartListSerializer<>(new SmartByteSerializer());
